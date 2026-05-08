@@ -1,2 +1,16 @@
+[project]
+name = "projet-formation-uml"
+version = "0.1.0"
+description = "Application Flask de gestion du processus de formation des employes"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.0.0",
+    "flask-sqlalchemy>=3.1.1",
+    "flask-login>=0.6.3",
+    "flask-wtf>=1.2.1",
+    "email-validator>=2.1.1",
+    "werkzeug>=3.0.0",
+]
+
 [tool.vercel]
 entrypoint = "api/index.py"
