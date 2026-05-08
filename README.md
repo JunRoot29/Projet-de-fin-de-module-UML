@@ -158,6 +158,31 @@ http://127.0.0.1:5000
 
 Au démarrage, Flask crée automatiquement les tables de la base de données si elles n'existent pas. Des données de démonstration sont également insérées si la base est vide.
 
+## Déploiement sur Vercel
+
+Le projet contient une configuration Vercel prête à l'emploi :
+
+- `api/index.py` expose l'application Flask comme fonction serverless ;
+- `vercel.json` redirige toutes les routes vers cette fonction ;
+- `pyproject.toml` indique explicitement à Vercel le point d'entrée Flask ;
+- `.vercelignore` exclut les fichiers locaux inutiles au déploiement ;
+- `config.py` utilise automatiquement `/tmp/app.db` et `/tmp/uploads` lorsque l'application tourne sur Vercel.
+
+Commandes possibles :
+
+```bash
+npm install -g vercel
+vercel
+```
+
+Pour un déploiement de production :
+
+```bash
+vercel --prod
+```
+
+Sur Vercel, la base SQLite stockée dans `/tmp` est temporaire. Elle convient pour une démonstration, mais pas pour une vraie application persistante. Pour conserver les données durablement, il faut définir une variable `DATABASE_URL` vers une base externe compatible SQLAlchemy.
+
 ## Comptes de démonstration
 
 | Rôle | Email | Mot de passe |
