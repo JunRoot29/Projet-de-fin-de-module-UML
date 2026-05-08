@@ -20,7 +20,12 @@
                         <small>Pilotage des parcours</small>
                     </span>
                 </a>
-                <div class="nav-links">
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-links" id="main-navigation">
                     {% if current_user.is_authenticated %}
                         {% if current_user.role == 'MANAGER' %}
                             <a href="{{ url_for('manager.dashboard') }}">Vue manager</a>
